@@ -10,8 +10,9 @@ pipeline {
         stage('Build Images') {
             steps { bat 'docker-compose build' }
         }
-        stage('Run Containers') {
+         stage('Run Containers') {
             steps {
+                bat 'docker rm -f web-app nginx-proxy mysql-db || exit 0'
                 bat 'docker-compose down'
                 bat 'docker-compose up -d'
             }
