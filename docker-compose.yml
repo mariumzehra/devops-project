@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    container_name: web-app
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    ports:
+      - "8081:80"
+    depends_on:
+      - web
+  db:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
