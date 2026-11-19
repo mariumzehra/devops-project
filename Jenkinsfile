@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Clone') {
-            steps { git branch: 'main', url: 'https://github.com/USERNAME/REPO.git' }
+            steps { git branch: 'main', url: 'https://github.com/mariumzehra/devops-project.git' }
         }
         stage('Build Images') {
             steps { bat 'docker compose build' }
