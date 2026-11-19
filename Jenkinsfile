@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        PATH = "C:\\Users\\HP Probook\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;${env.PATH}"
+    }
     stages {
         stage('Clone') {
             steps { git branch: 'main', url: 'https://github.com/mariumzehra/devops-project.git' }
